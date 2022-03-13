@@ -4,7 +4,7 @@ const INITIAL_STATE_USER = {
 	lastName: undefined,
 };
 
-export default function UserReducer(state = INITIAL_STATE_USER, action) {
+export default function userReducer(state = INITIAL_STATE_USER, action) {
 	switch (action.type) {
 		case 'IS_LOGGED':
 			if (state.showSignIn) {

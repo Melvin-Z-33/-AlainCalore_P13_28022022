@@ -6,7 +6,7 @@ const INITIAL_STATE_LOGIN = {
 	isEdit: false,
 };
 
-export default function LoginReducer(state = INITIAL_STATE_LOGIN, action) {
+export default function loginReducer(state = INITIAL_STATE_LOGIN, action) {
 	switch (action.type) {
 		case 'IS_LOGGED':
 			if (state.showSignIn) {
