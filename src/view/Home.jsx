@@ -7,10 +7,6 @@ import chat from '../assets/img/icon-chat.png';
 import money from '../assets/img/icon-money.png';
 import security from '../assets/img/icon-security.png';
 
-/**
- * @return element react {Home}
- */
-
 export default function Home() {
 	return (
 		<>

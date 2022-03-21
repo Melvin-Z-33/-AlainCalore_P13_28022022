@@ -1,32 +1,43 @@
-const INITIAL_STATE_USER = {
-	email: undefined,
-	firstName: undefined,
-	lastName: undefined,
+export const INITIAL_STATE = {
+	showSignIn: true,
+	isLogged: false,
+	isEdit: false,
+	token: '',
+	firstName: '',
+	lastName: '',
 };
 
-export default function userReducer(state = INITIAL_STATE_USER, action) {
+export default function userReducer(state = INITIAL_STATE, action) {
 	switch (action.type) {
-		case 'IS_LOGGED':
-			if (state.showSignIn) {
-				return {
-					...state,
+		case 'IS_LOGGED_USER': {
+			return {
+				...state,
+				firstName: action.payload.firstName,
+				lastName: action.payload.lastName,
+			};
+		}
+		case 'UPDATE_NAME': {
+			return {
+				...state,
+				firstName: action.payload.firstName,
+				lastName: action.payload.lastName,
+			};
+		}
 
-					isLogged: true,
-					showSignIn: false,
-					showSignUp: false,
-				};
-			} else {
-				return {
-					...state,
-					showSignIn: true,
-					showSignUp: false,
-				};
-			}
+		case 'IS_LOGGED': {
+			return {
+				...state,
+
+				showSignIn: false,
+				isLogged: true,
+				token: action.payload,
+			};
+		}
 		case 'IS_LOGOUT': {
 			return {
 				...state,
-				isLogged: false,
 				showSignIn: true,
+				isLogged: false,
 			};
 		}
 

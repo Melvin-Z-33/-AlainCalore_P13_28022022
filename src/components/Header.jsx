@@ -8,14 +8,14 @@ import '../designs/css/main.css';
 export default function Header() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { showSignIn } = useSelector((state) => ({ ...state.loginReducer }));
+	const showSignIn = useSelector((state) => state.showSignIn);
 
 	const handleLogout = (e) => {
 		e.preventDefault();
 		dispatch({ type: 'IS_LOGOUT' });
 		localStorage.removeItem('token');
-		localStorage.removeItem('firstname');
-		localStorage.removeItem('lastname');
+		localStorage.removeItem('firstName');
+		localStorage.removeItem('lastName');
 		navigate('/');
 	};
 
@@ -28,7 +28,6 @@ export default function Header() {
 						<h1 className="sr-only">Argent Bank</h1>
 					</div>
 				</Link>
-
 				{showSignIn ? (
 					<Link to="/login">
 						<div className="main-nav-item">

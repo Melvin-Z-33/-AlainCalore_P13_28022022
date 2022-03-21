@@ -2,10 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SignInForm from '../components/SignInForm';
-import { useSelector, useDispatch } from 'react-redux';
 
 export default function Login() {
-	const showModal = useSelector((state) => state);
 	return (
 		<>
 			<Header />
