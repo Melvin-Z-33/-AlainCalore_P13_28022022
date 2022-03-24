@@ -293,3 +293,43 @@ body {
     width: 200px;
   }
 }
+
+
+/** FORM EDIT **/
+#profile_form-edit {
+  width: 369px;
+  margin: 0 auto;
+
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+  background-color: pink;
+}
+
+
+/** HEADER **/
+.main-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-nav-item>* {
+  margin: 7px;
+
+}
+
+.fa-2x {
+  font-size: 1.5em;
+}

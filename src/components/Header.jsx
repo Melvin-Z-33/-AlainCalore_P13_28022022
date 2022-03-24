@@ -8,14 +8,12 @@ import '../designs/css/main.css';
 export default function Header() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { showSignIn } = useSelector((state) => ({ ...state.loginReducer }));
+	const firstName = useSelector((state) => state.firstName);
+	const showSignIn = useSelector((state) => state.showSignIn);
 
 	const handleLogout = (e) => {
 		e.preventDefault();
 		dispatch({ type: 'IS_LOGOUT' });
-		localStorage.removeItem('token');
-		localStorage.removeItem('firstname');
-		localStorage.removeItem('lastname');
 		navigate('/');
 	};
 
@@ -28,19 +26,20 @@ export default function Header() {
 						<h1 className="sr-only">Argent Bank</h1>
 					</div>
 				</Link>
-
 				{showSignIn ? (
 					<Link to="/login">
 						<div className="main-nav-item">
-							<i className="fa fa-user-circle"></i>
-							Sign In
+							<i className="fa fa-user-circle fa-2x"></i>
+							<p>Sign In</p>
 						</div>
 					</Link>
 				) : (
 					<Link to="/" onClick={handleLogout}>
 						<div className="main-nav-item">
-							<i className="fa fa-sign-out"></i>
-							Sign Out
+							<i className="fa fa-user-circle fa-2x "></i>
+							<p>{firstName}</p>
+							<i className="fa fa-sign-out fa-2x "></i>
+							<p>Sign Out</p>
 						</div>
 					</Link>
 				)}

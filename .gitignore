@@ -60,3 +60,5 @@ node_modules
 config/runtime.yaml
 
 .DS_Store
+
+package-lock.json
