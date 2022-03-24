@@ -8,6 +8,7 @@ import '../designs/css/main.css';
 export default function Header() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const firstName = useSelector((state) => state.firstName);
 	const showSignIn = useSelector((state) => state.showSignIn);
 
 	const handleLogout = (e) => {
@@ -38,6 +39,8 @@ export default function Header() {
 				) : (
 					<Link to="/" onClick={handleLogout}>
 						<div className="main-nav-item">
+							<i className="fa fa-user-circle"></i>
+							{firstName}
 							<i className="fa fa-sign-out"></i>
 							Sign Out
 						</div>

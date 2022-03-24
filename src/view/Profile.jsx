@@ -10,12 +10,14 @@ export default function Profile() {
 	const dispatch = useDispatch();
 	const firstName = useSelector((state) => state.firstName);
 	const lastName = useSelector((state) => state.lastName);
+	const token = useSelector((state) => state.token);
+	console.log(token.token);
 
 	axios({
 		method: 'post',
 		url: `http://localhost:3001/api/v1/user/profile`,
 		headers: {
-			Authorization: `Bearer ${localStorage.getItem('token')}`,
+			Authorization: `Bearer ${token.token}`,
 		},
 	})
 		.then((response) => {
@@ -26,8 +28,8 @@ export default function Profile() {
 					lastName: response.data.body.lastName,
 				},
 			});
-			localStorage.setItem('firstName', response.data.body.firstName);
-			localStorage.setItem('lastName', response.data.body.lastName);
+			// localStorage.setItem('firstName', response.data.body.firstName);
+			// localStorage.setItem('lastName', response.data.body.lastName);
 		})
 		.catch((err) => console.log(err));
 

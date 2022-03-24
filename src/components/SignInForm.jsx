@@ -16,7 +16,7 @@ export default function SignInForm() {
 			})
 			.then((data) => {
 				dispatch({ type: 'IS_LOGGED', payload: { token: data.data.body.token } });
-				localStorage.setItem('token', data.data.body.token);
+
 				navigate('/profile');
 			})
 			.catch((error) => {
