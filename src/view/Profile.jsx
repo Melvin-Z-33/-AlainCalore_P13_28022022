@@ -28,8 +28,6 @@ export default function Profile() {
 					lastName: response.data.body.lastName,
 				},
 			});
-			// localStorage.setItem('firstName', response.data.body.firstName);
-			// localStorage.setItem('lastName', response.data.body.lastName);
 		})
 		.catch((err) => console.log(err));
 

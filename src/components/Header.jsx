@@ -14,9 +14,6 @@ export default function Header() {
 	const handleLogout = (e) => {
 		e.preventDefault();
 		dispatch({ type: 'IS_LOGOUT' });
-		localStorage.removeItem('token');
-		localStorage.removeItem('firstName');
-		localStorage.removeItem('lastName');
 		navigate('/');
 	};
 
@@ -32,17 +29,17 @@ export default function Header() {
 				{showSignIn ? (
 					<Link to="/login">
 						<div className="main-nav-item">
-							<i className="fa fa-user-circle"></i>
-							Sign In
+							<i className="fa fa-user-circle fa-2x"></i>
+							<p>Sign In</p>
 						</div>
 					</Link>
 				) : (
 					<Link to="/" onClick={handleLogout}>
 						<div className="main-nav-item">
-							<i className="fa fa-user-circle"></i>
-							{firstName}
-							<i className="fa fa-sign-out"></i>
-							Sign Out
+							<i className="fa fa-user-circle fa-2x "></i>
+							<p>{firstName}</p>
+							<i className="fa fa-sign-out fa-2x "></i>
+							<p>Sign Out</p>
 						</div>
 					</Link>
 				)}

@@ -1,7 +1,5 @@
 import userReducer from './reducers/userReducer';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 
 //const rootReducer = combineReducers({ userReducer });
 const store = createStore(

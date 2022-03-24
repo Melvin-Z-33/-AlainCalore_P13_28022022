@@ -1,7 +1,5 @@
 export const INITIAL_STATE = {
 	showSignIn: true,
-	isLogged: false,
-	isEdit: false,
 	token: '',
 	firstName: '',
 	lastName: '',
@@ -29,7 +27,6 @@ export default function userReducer(state = INITIAL_STATE, action) {
 				...state,
 
 				showSignIn: false,
-				isLogged: true,
 				token: action.payload,
 			};
 		}
@@ -37,7 +34,6 @@ export default function userReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				showSignIn: true,
-				isLogged: false,
 			};
 		}
 

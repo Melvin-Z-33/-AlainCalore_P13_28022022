@@ -1,15 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
-const cancelForm = () => {
+const closeForm = () => {
 	document.getElementById('profile_form-edit').classList.replace('flex', 'none');
 	document.querySelector('#button-edit').classList.remove('none');
 	document.getElementById('form-update_firstname').value = '';
 	document.getElementById('form-update_lastname').value = '';
 };
 
-export default function UpdateForm(props) {
+export default function UpdateForm() {
 	const dispatch = useDispatch();
 	const firstName = useSelector((state) => state.firstName);
 	const lastName = useSelector((state) => state.lastName);
@@ -38,7 +37,7 @@ export default function UpdateForm(props) {
 					payload: { firstName: data.body.firstName, lastName: data.body.lastName },
 				});
 
-				cancelForm();
+				closeForm();
 			})
 			.catch((error) => {
 				alert('Erreur de saisie');
@@ -50,7 +49,7 @@ export default function UpdateForm(props) {
 			<input type="text" placeholder={firstName} id="form-update_firstname"></input>
 			<input type="text" placeholder={lastName} id="form-update_lastname"></input>
 			<button onClick={handleSubmit}>save</button>
-			<button onClick={cancelForm}>cancel</button>
+			<button onClick={closeForm}>cancel</button>
 		</div>
 	);
 }
